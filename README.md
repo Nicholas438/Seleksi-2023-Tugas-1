@@ -36,26 +36,26 @@ Library:
 ## How to Use
 
 ### Data scraper
-Lakukan cloning atau download program scraper.py
-Install library yang diperlukan dengan `pip install (library)` pada command prompt
-Navigasi ke lokasi file pada .../Data Scraping/src dan lakukan run
-Akan digenerasi raw_data.csv pada direktori file scraper.py diletakkan
-
+Lakukan cloning atau download program scraper.py <br>
+Install library yang diperlukan dengan `pip install (library)` pada command prompt <br>
+Navigasi ke lokasi file pada .../Data Scraping/src dan lakukan run <br>
+Akan digenerasi raw_data.csv pada direktori file scraper.py diletakkan <br>
+<br >
 ### Data Cleaner
-Lakukan cloning atau download program cleaner.py
-Install library yang diperlukan dengan `pip install (library)` pada command prompt
-Navigasi ke lokasi file pada .../Data Scraping/src dan lakukan run
-Akan digenerasi raw_data.csv pada direktori file cleaner.py diletakkan
+Lakukan cloning atau download program cleaner.py <br>
+Install library yang diperlukan dengan `pip install (library)` pada command prompt <br>
+Navigasi ke lokasi file pada .../Data Scraping/src dan lakukan run <br>
+Akan digenerasi raw_data.csv pada direktori file cleaner.py diletakkan <br>
 
 ### Data Storing
-Lakukan cloning atau download database hotels.sql
-Install postgresql jika belum terinstal pada perangkat yang digunakan
-Navigasi cmd ke .../Data Storing/export
-Restore database dengan perintah `psql -U {username} -d {database_name} < hotels.sql` sesuai dengan database yang ingin digunakan dan username postgres pada perangkat
+Lakukan cloning atau download database hotels.sql <br>
+Install postgresql jika belum terinstal pada perangkat yang digunakan <br>
+Navigasi cmd ke .../Data Storing/export <br>
+Restore database dengan perintah `psql -U {username} -d {database_name} < hotels.sql` sesuai dengan database yang ingin digunakan dan username postgres pada perangkat <br>
 
 ## JSON Structure
-JSON digenerasi dengan menggunakan tools online untuk mengkonversi csv menjadi json
-JSON digunakan untuk menyimpan data yang nantinya dapat digunakan untuk export data ke sql
+JSON digenerasi dengan menggunakan tools online untuk mengkonversi csv menjadi json <br>
+JSON digunakan untuk menyimpan data yang nantinya dapat digunakan untuk export data ke sql <br>
 ![json](https://github.com/Nicholas438/Seleksi-2023-Tugas-1/blob/main/Data%20Scraping/screenshot/json_file.png)
 
 ## Database Structure
@@ -65,12 +65,12 @@ JSON digunakan untuk menyimpan data yang nantinya dapat digunakan untuk export d
 ![Rel Diagram](https://github.com/Nicholas438/Seleksi-2023-Tugas-1/blob/main/Data%20Storing/design/Relation.png)
 
 ## Explanation of ERD to relational diagram and translational process
-Pada ERD, dibuat dua buah entitas yaitu hotel dan price. Hotel terhubung dengan price dengan hotel_id sebagai foreign key.
-Hotel berisi alamat, point yaitu 50% berasal dari review dan 50% dari harga dan hotel_id sebagai primary key identifier, selain itu hotel juga memiliki review dan detail per kategori
-Prices adalah weak entity yang berisi harga per hari
+Pada ERD, dibuat dua buah entitas yaitu hotel dan price. Hotel terhubung dengan price dengan hotel_id sebagai foreign key. <br>
+Hotel berisi alamat, point yaitu 50% berasal dari review dan 50% dari harga dan hotel_id sebagai primary key identifier, selain itu hotel juga memiliki review dan detail per kategori <br>
+Prices adalah weak entity yang berisi harga per hari <br>
 
-Hotel akan ditranslasikan as is pada psql karena tidak ada yang perlu digantikan, sementara itu prices akan memiliki hotel_id sebagai foreign key karena status prices sebagai weak entity
-Karena pengguna kemungkinan tidak memerlukan review setiap kali data hotel ingin diakses, maka akan dilakukan vertical partitioning dengan relasi baru reviews yang berisi detail review per kategori dari hotel
+Hotel akan ditranslasikan as is pada psql karena tidak ada yang perlu digantikan, sementara itu prices akan memiliki hotel_id sebagai foreign key karena status prices sebagai weak entity <br>
+Karena pengguna kemungkinan tidak memerlukan review setiap kali data hotel ingin diakses, maka akan dilakukan vertical partitioning dengan relasi baru reviews yang berisi detail review per kategori dari hotel <br>
 
 ## Screenshots of the program
 
@@ -82,6 +82,7 @@ Karena pengguna kemungkinan tidak memerlukan review setiap kali data hotel ingin
 
 ### Pembuatan tabel prices
 <br>
+
 ![prices](https://github.com/Nicholas438/Seleksi-2023-Tugas-1/blob/main/Data%20Storing/screenshot/prices_table.png)
 
 ### Pembuatan tabel reviews
@@ -90,24 +91,44 @@ Karena pengguna kemungkinan tidak memerlukan review setiap kali data hotel ingin
 ### Update tabel hotels
 ![drop](https://github.com/Nicholas438/Seleksi-2023-Tugas-1/blob/main/Data%20Storing/screenshot/hotel_drop_update.png)
 ![tabel akhir](https://github.com/Nicholas438/Seleksi-2023-Tugas-1/blob/main/Data%20Storing/screenshot/hotel_table_final.png)
+## Visualization
+### Plot data berdasarkan postcode
+<br>
+
+![postcode](https://github.com/Nicholas438/Seleksi-2023-Tugas-1/blob/main/Data%20Visualization/postcode.png)
+
+### Hotel terbaik dari postcode terbanyak
+<br>
+
+![overall](https://github.com/Nicholas438/Seleksi-2023-Tugas-1/blob/main/Data%20Visualization/overall.png)
+
+### Plot korelasi harga dan review
+<br>
+
+![plot](https://github.com/Nicholas438/Seleksi-2023-Tugas-1/blob/main/Data%20Visualization/plot.png)
+
+### Insight yang didapatkan
+1. Kode pos 40115 memiliki frekuensi hotel terbaik oleh tripadvisor tertinggi yang mungkin terjadi karena adanya beberapa daerah wisata yang dapat dikunjungi dan lokasi strategis yang memiliki berbagai pilihan karena tingginya densitas penduduk pada daerah tersebut
+2. Tebu Hotel Bandung adalah hotel yang relatif terbaik dari segi harga, review melalui poin dan lokasi yang diuraikan pada nomor satu. 
+3. Ada korelasi positif antara harga dan review. Sehingga dengan naiknya harga, review memiliki kemungkinan tinggi untuk memiliki nilai yang lebih besar juga
 
 ## References
 Libraries:
-https://www.postgresql.org/
-https://pypi.org/project/beautifulsoup4/
-https://www.selenium.dev/
-https://pandas.pydata.org/
-
+https://www.postgresql.org/<br>
+https://pypi.org/project/beautifulsoup4/<br>
+https://www.selenium.dev/<br>
+https://pandas.pydata.org/<br>
+<br>
 Tutorials and tools:
-https://realpython.com/beautiful-soup-web-scraper-python/
-https://realpython.com/modern-web-automation-with-python-and-selenium/
-https://www.codespeedy.com/beautifulsoup-lxml-parser-full-tutorial-python/
-https://antisyllogism.medium.com/how-to-webscrape-with-requests-selenium-and-beautifulsoup-in-python-d2b1b996399a
-https://csvjson.com/
-https://www.convertjson.com/json-to-sql.htm
+https://realpython.com/beautiful-soup-web-scraper-python/<br>
+https://realpython.com/modern-web-automation-with-python-and-selenium/<br>
+https://www.codespeedy.com/beautifulsoup-lxml-parser-full-tutorial-python/<br>
+https://antisyllogism.medium.com/how-to-webscrape-with-requests-selenium-and-beautifulsoup-in-python-d2b1b996399a<br>
+https://csvjson.com/<br>
+https://www.convertjson.com/json-to-sql.html<br>
 
 ## Author
-Nicholas
-18221165
-Seleksi Warga Basdat 
-2023
+Nicholas <br>
+18221165 <br>
+Seleksi Warga Basdat <br>
+2023 
